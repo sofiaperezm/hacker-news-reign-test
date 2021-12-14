@@ -1,7 +1,9 @@
+import Header from "../components/Header/Header";
+
 function Main({ children }) {
   return (
     <div>
-      <div>Header</div>
+      <Header></Header>
       <div>Tabs</div>
       <main>{children}</main>
       <div>Paginacion</div>
