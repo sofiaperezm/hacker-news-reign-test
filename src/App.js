@@ -4,14 +4,12 @@ import FavsPage from "./pages/Favs";
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<AllPage />} />
-          <Route path="/favs" element={<FavsPage />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<AllPage />} />
+        <Route path="/favs" element={<FavsPage />} />
+      </Routes>
+    </Router>
   );
 }
 

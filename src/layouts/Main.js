@@ -1,13 +1,16 @@
 import Header from "../components/Header/Header";
 import Tabs from "../components/Tabs/Tabs";
+import { TABS } from "../utils/constants";
 
 function Main({ currentPage, children }) {
   return (
     <div>
       <Header></Header>
-      <Tabs selected={currentPage} labels={["All", "My faves"]}></Tabs>
-      <main>{children}</main>
-      <div>Paginacion</div>
+      <main className="content">
+        <Tabs selected={currentPage} labels={TABS}></Tabs>
+        {children}
+        <div>Paginacion</div>
+      </main>
     </div>
   );
 }

@@ -2,30 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4.3rem;
 }
 
 .button {
   width: 6.125rem;
   height: 1.938rem;
-  border-color: #d6d6d6 #d6d6d6 #d6d6d6 #1797ff;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid #d6d6d6;
   color: #606060;
   background-color: #fcfcfc;
-  font-family: "Roboto";
   font-weight: 500;
+  cursor: pointer;
 }
 
-button:first-of-type {
-  border-radius: 0.125rem 0 0 0.125rem;
+.container a:first-child button {
+  border-top-left-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
 }
 
-button:first-of-type {
-  border-radius: 0 0.125rem 0.125rem 0;
+.container a:last-child button {
+  border-top-right-radius: 0.125rem;
+  border-bottom-right-radius: 0.125rem;
 }
 
-/* .selected {
+.selected {
   border: solid 1px #1797ff;
   color: #1797ff;
-} */
+}
