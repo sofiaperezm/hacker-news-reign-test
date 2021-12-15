@@ -1,7 +1,7 @@
 import Main from "../layouts/Main";
 
 function AllPage() {
-  return <Main>All page</Main>;
+  return <Main currentPage="All">All page</Main>;
 }
 
 export default AllPage;

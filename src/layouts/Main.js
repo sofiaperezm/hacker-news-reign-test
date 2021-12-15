@@ -1,10 +1,11 @@
 import Header from "../components/Header/Header";
+import Tabs from "../components/Tabs/Tabs";
 
-function Main({ children }) {
+function Main({ currentPage, children }) {
   return (
     <div>
       <Header></Header>
-      <div>Tabs</div>
+      <Tabs selected={currentPage} labels={["All", "My faves"]}></Tabs>
       <main>{children}</main>
       <div>Paginacion</div>
     </div>

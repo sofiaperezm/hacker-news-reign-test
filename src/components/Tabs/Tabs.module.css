@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4.3rem;
+}
+
+.button {
+  width: 6.125rem;
+  height: 1.938rem;
+  border-color: #d6d6d6 #d6d6d6 #d6d6d6 #1797ff;
+  border-width: 1px;
+  border-style: solid;
+  color: #606060;
+  background-color: #fcfcfc;
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+button:first-of-type {
+  border-radius: 0.125rem 0 0 0.125rem;
+}
+
+button:first-of-type {
+  border-radius: 0 0.125rem 0.125rem 0;
+}
+
+/* .selected {
+  border: solid 1px #1797ff;
+  color: #1797ff;
+} */
