@@ -1,3 +1,4 @@
+import styles from "./Dropdown.module.css";
 import { useState } from "react";
 
 function Dropdown({ options, defaultOption, handleChange = () => {} }) {
@@ -10,7 +11,11 @@ function Dropdown({ options, defaultOption, handleChange = () => {} }) {
   }
 
   return (
-    <select value={selectedOption} onChange={changeOption}>
+    <select
+      aria-label="frontend technologies"
+      value={selectedOption}
+      onChange={changeOption}
+    >
       {options.map((option) => (
         <option key={option.name} value={option.value}>
           {option.name}

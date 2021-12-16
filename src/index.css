@@ -2,6 +2,9 @@
 
 :root {
   --primary: #1797ff;
+  --dark-charcoal: #2e2e2e;
+  --white: #fff;
+  --night-rider: #343434;
 }
 
 * {
@@ -17,7 +20,8 @@ body {
 
 input,
 textarea,
-button {
+button,
+select {
   font-family: inherit;
 }
 
