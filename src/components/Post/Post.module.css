@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  max-width: 34.3rem;
+  min-height: 5.6rem;
+  border-radius: 0.4rem;
+  border: solid 1px var(--ford-gray);
+  background-color: var(--white);
+}
+
+.container:hover {
+  opacity: 0.4;
+}
+
+.postContainer {
+  flex-basis: 90%;
+  padding: 1rem;
+}
+
+.favContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 4.25rem;
+  min-height: 5.6rem;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  border: none;
+  background-color: rgba(96, 96, 96, 0.06);
+}
+
+.clockIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--medium-gray);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.25px;
+  color: var(--gray-42);
+}
+
+.date {
+  color: var(--sonic-silver);
+}
+
+.favIcon {
+  width: 24px;
+  height: 22px;
+  color: var(--red-fav);
+}

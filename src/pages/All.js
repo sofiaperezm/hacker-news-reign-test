@@ -9,8 +9,18 @@ function AllPage() {
   const [selectedTopic, setSelectedTopic] = useState(DEFAULT_TOPIC);
 
   useEffect(() => {
-    console.log("Make a request", selectedTopic);
+    requestNews(selectedTopic);
   }, [selectedTopic]);
+
+  async function requestNews(APIurl) {
+    const response = await fetch(`${APIurl}`);
+    const APIdata = await response.json();
+    console.log(APIdata);
+    console.log(APIdata.hits[1].story_title);
+    return APIdata;
+
+    // TO DO: implement try and catch
+  }
 
   function handleDropdownChange(value) {
     setSelectedTopic(value);
