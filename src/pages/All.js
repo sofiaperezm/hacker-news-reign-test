@@ -58,7 +58,7 @@ function AllPage() {
             title={post.storyTitle}
             url={post.storyUrl}
             createdAt={post.createdAt}
-            isFav={false}
+            isFav={true}
           />
         ))}
       </div>
