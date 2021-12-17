@@ -1,8 +1,15 @@
 import styles from "./Post.module.css";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
-function Post() {
+function Post({ id, author, title, url, createdAt, isFav }) {
+  function navigateToPost() {
+    window.open(url);
+  }
+
   return (
-    <article className={styles.container}>
+    <article className={styles.container} onClick={navigateToPost}>
       <div className={styles.postContainer}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +25,10 @@ function Post() {
             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <span className={styles.date}>3 hours ago by author</span>
-        <h2 className={styles.title}>F# Good and Bad</h2>
+        <span className={styles.date}>
+          {dayjs(createdAt).fromNow()} by {author}
+        </span>
+        <h2 className={styles.title}>{title}</h2>
       </div>
       <div className={styles.favContainer}>
         <svg

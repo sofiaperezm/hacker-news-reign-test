@@ -35,7 +35,6 @@ function AllPage() {
         posts.push(post);
       }
     });
-    console.log(posts);
     return posts;
     // TO DO: implement try and catch
   }
@@ -53,7 +52,14 @@ function AllPage() {
       />
       <div>
         {posts.map((post) => (
-          <Post key={post.id} />
+          <Post
+            key={post.id}
+            author={post.author}
+            title={post.storyTitle}
+            url={post.storyUrl}
+            createdAt={post.createdAt}
+            isFav={false}
+          />
         ))}
       </div>
     </Main>

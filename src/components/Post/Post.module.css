@@ -5,6 +5,7 @@
   border-radius: 0.4rem;
   border: solid 1px var(--ford-gray);
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .container:hover {
