@@ -21,19 +21,21 @@ function AllPage() {
   async function getPosts(APIurl) {
     const response = await fetch(`${APIurl}`);
     const APIdata = await response.json();
-    const postsData = await APIdata.hits;
-    console.log(postsData);
+    const postsData = APIdata.hits;
     const posts = [];
     Object.keys(postsData).forEach((key) => {
       const post = {
-        id: postsData[key].story_id,
+        id: postsData[key].objectID,
         author: postsData[key].author,
-        story_title: postsData[key].story_title,
-        story_url: postsData[key].story_url,
-        created_at: postsData[key].created_at,
+        storyTitle: postsData[key].story_title,
+        storyUrl: postsData[key].story_url,
+        createdAt: postsData[key].created_at,
       };
-      posts.push(post);
+      if (post.author && post.createdAt && post.storyTitle && post.storyUrl) {
+        posts.push(post);
+      }
     });
+    console.log(posts);
     return posts;
     // TO DO: implement try and catch
   }
