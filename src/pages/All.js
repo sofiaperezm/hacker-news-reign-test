@@ -1,14 +1,21 @@
+import { useEffect, useState } from "react";
 import Main from "../layouts/Main";
 import Dropdown from "../components/Dropdown/Dropdown";
-import { DROPDOWN_OPTIONS } from "../utils/constants";
-import { useEffect, useState } from "react";
 import Post from "../components/Post/Post";
+import { DROPDOWN_OPTIONS } from "../utils/constants";
+import { getPosts } from "../api/post";
+import { setStorage, getStorage } from "../utils/storage";
 
 const DEFAULT_TOPIC = DROPDOWN_OPTIONS[0].value;
 
 function AllPage() {
   const [selectedTopic, setSelectedTopic] = useState(DEFAULT_TOPIC);
   const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const currentFilter = getStorage("filter");
+    setSelectedTopic(currentFilter || DEFAULT_TOPIC);
+  }, []);
 
   useEffect(() => {
     async function _getPosts() {
@@ -18,29 +25,9 @@ function AllPage() {
     _getPosts();
   }, [selectedTopic]);
 
-  async function getPosts(APIurl) {
-    const response = await fetch(`${APIurl}`);
-    const APIdata = await response.json();
-    const postsData = APIdata.hits;
-    const posts = [];
-    Object.keys(postsData).forEach((key) => {
-      const post = {
-        id: postsData[key].objectID,
-        author: postsData[key].author,
-        storyTitle: postsData[key].story_title,
-        storyUrl: postsData[key].story_url,
-        createdAt: postsData[key].created_at,
-      };
-      if (post.author && post.createdAt && post.storyTitle && post.storyUrl) {
-        posts.push(post);
-      }
-    });
-    return posts;
-    // TO DO: implement try and catch
-  }
-
   function handleDropdownChange(value) {
     setSelectedTopic(value);
+    setStorage("filter", value);
   }
 
   return (
@@ -58,7 +45,7 @@ function AllPage() {
             title={post.storyTitle}
             url={post.storyUrl}
             createdAt={post.createdAt}
-            isFav={true}
+            isFav={false}
           />
         ))}
       </div>

@@ -1,8 +1,11 @@
-import styles from "./Dropdown.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Dropdown({ options, defaultOption, handleChange = () => {} }) {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
+
+  useEffect(() => {
+    setSelectedOption(defaultOption);
+  }, [defaultOption]);
 
   function changeOption(e) {
     const { value } = e.target;
