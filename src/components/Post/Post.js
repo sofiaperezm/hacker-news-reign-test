@@ -1,11 +1,32 @@
-import styles from "./Post.module.css";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { getStorage, setStorage } from "../../utils/storage";
+import styles from "./Post.module.css";
+
 dayjs.extend(relativeTime);
 
 function Post({ id, author, title, url, createdAt, isFav }) {
   function navigateToPost() {
     window.open(url);
+  }
+
+  function addToFavorites(event) {
+    event.stopPropagation();
+
+    const favorites = getStorage("favorites") || [];
+    favorites.push({ id, author, title, url, createdAt, isFav: true });
+    setStorage("favorites", favorites);
+  }
+
+  function removeToFavorites(event) {
+    event.stopPropagation();
+
+    const favorites = getStorage("favorites");
+    const favIndex = favorites.findIndex((favorite) => favorite.id === id);
+    if (favIndex !== -1) {
+      favorites.splice(favIndex, 1);
+      setStorage("favorites", favorites);
+    }
   }
 
   return (
@@ -35,6 +56,7 @@ function Post({ id, author, title, url, createdAt, isFav }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={styles.favIcon}
+            onClick={removeToFavorites}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -48,6 +70,7 @@ function Post({ id, author, title, url, createdAt, isFav }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={styles.favIcon}
+            onClick={addToFavorites}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

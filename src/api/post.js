@@ -8,11 +8,11 @@ export async function getPosts(APIurl) {
       const post = {
         id: postsData[key].objectID,
         author: postsData[key].author,
-        storyTitle: postsData[key].story_title,
-        storyUrl: postsData[key].story_url,
+        title: postsData[key].story_title,
+        url: postsData[key].story_url,
         createdAt: postsData[key].created_at,
       };
-      if (post.author && post.createdAt && post.storyTitle && post.storyUrl) {
+      if (post.author && post.createdAt && post.title && post.url) {
         posts.push(post);
       }
     });

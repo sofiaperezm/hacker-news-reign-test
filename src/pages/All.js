@@ -41,11 +41,12 @@ function AllPage() {
         {posts.map((post) => (
           <Post
             key={post.id}
+            id={post.id}
             author={post.author}
-            title={post.storyTitle}
-            url={post.storyUrl}
+            title={post.title}
+            url={post.url}
             createdAt={post.createdAt}
-            isFav={false}
+            isFav={true}
           />
         ))}
       </div>
