@@ -3,8 +3,8 @@ import Main from "../layouts/Main";
 import Dropdown from "../components/Dropdown/Dropdown";
 import Post from "../components/Post/Post";
 import { DROPDOWN_OPTIONS } from "../utils/constants";
-import { getPosts } from "../api/post";
-import { setStorage, getStorage } from "../utils/storage";
+import { getPosts, markAsFavorite } from "../api/post";
+import { setItem, getItem } from "../utils/storage";
 
 const DEFAULT_TOPIC = DROPDOWN_OPTIONS[0].value;
 
@@ -13,13 +13,14 @@ function AllPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const currentFilter = getStorage("filter");
+    const currentFilter = getItem("filter");
     setSelectedTopic(currentFilter || DEFAULT_TOPIC);
   }, []);
 
   useEffect(() => {
     async function _getPosts() {
-      const _posts = await getPosts(selectedTopic);
+      let _posts = await getPosts(selectedTopic);
+      _posts = markAsFavorite(_posts);
       setPosts(_posts);
     }
     _getPosts();
@@ -27,7 +28,12 @@ function AllPage() {
 
   function handleDropdownChange(value) {
     setSelectedTopic(value);
-    setStorage("filter", value);
+    setItem("filter", value);
+  }
+
+  function handleFavActions() {
+    const _posts = markAsFavorite(posts);
+    setPosts(_posts);
   }
 
   return (
@@ -46,7 +52,8 @@ function AllPage() {
             title={post.title}
             url={post.url}
             createdAt={post.createdAt}
-            isFav={true}
+            isFav={post.isFav}
+            handleFavorite={handleFavActions}
           />
         ))}
       </div>

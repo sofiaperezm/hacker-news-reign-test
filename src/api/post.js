@@ -1,3 +1,5 @@
+import { getItem } from "../utils/storage";
+
 export async function getPosts(APIurl) {
   try {
     const response = await fetch(`${APIurl}`);
@@ -20,4 +22,17 @@ export async function getPosts(APIurl) {
   } catch (error) {
     return [];
   }
+}
+
+export function markAsFavorite(posts) {
+  const favorites = getFavoritePosts();
+
+  return posts.map((post) => {
+    const favorite = favorites.find((fav) => fav.id === post.id);
+    return { ...post, isFav: favorite ? true : false };
+  });
+}
+
+export function getFavoritePosts() {
+  return getItem("favorites");
 }

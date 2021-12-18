@@ -1,11 +1,11 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { getStorage, setStorage } from "../../utils/storage";
+import { getItem, setItem } from "../../utils/storage";
 import styles from "./Post.module.css";
 
 dayjs.extend(relativeTime);
 
-function Post({ id, author, title, url, createdAt, isFav }) {
+function Post({ id, author, title, url, createdAt, isFav, handleFavorite }) {
   function navigateToPost() {
     window.open(url);
   }
@@ -13,19 +13,21 @@ function Post({ id, author, title, url, createdAt, isFav }) {
   function addToFavorites(event) {
     event.stopPropagation();
 
-    const favorites = getStorage("favorites") || [];
+    const favorites = getItem("favorites") || [];
     favorites.push({ id, author, title, url, createdAt, isFav: true });
-    setStorage("favorites", favorites);
+    setItem("favorites", favorites);
+    handleFavorite("add favorite", id);
   }
 
   function removeToFavorites(event) {
     event.stopPropagation();
 
-    const favorites = getStorage("favorites");
+    const favorites = getItem("favorites");
     const favIndex = favorites.findIndex((favorite) => favorite.id === id);
     if (favIndex !== -1) {
       favorites.splice(favIndex, 1);
-      setStorage("favorites", favorites);
+      setItem("favorites", favorites);
+      handleFavorite("remove favorite", id);
     }
   }
 
