@@ -14,7 +14,7 @@
 }
 
 .postInfo {
-  flex-basis: 90%;
+  flex-basis: 88%;
   padding: 1rem 1rem 0.8rem 1.6rem;
 }
 
@@ -31,13 +31,13 @@
 
 .date {
   color: var(--sonic-silver);
-  font-size: 11px;
+  font-size: 0.6rem;
   margin-left: 0.5rem;
 }
 
 .title {
   display: block;
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.43;
   letter-spacing: 0.25px;
@@ -50,9 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-basis: 10%;
-  max-width: 4.25rem;
-  min-height: 5.6rem;
+  flex-basis: 12%;
   border-top-right-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
   border: none;
@@ -60,14 +58,20 @@
 }
 
 .favIcon {
-  width: 24px;
-  height: 22px;
+  width: 1.5rem;
+  height: 1.3rem;
   color: var(--red-fav);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   .container {
     margin-bottom: 0;
+    width: 28.3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
     width: 34.3rem;
     height: 5.6rem;
   }
