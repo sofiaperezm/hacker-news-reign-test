@@ -4,7 +4,11 @@
   justify-content: center;
   height: 7.1rem;
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
-  background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
+  background-image: linear-gradient(
+    to bottom,
+    var(--bright-gray) -32%,
+    var(--white) 124%
+  );
 }
 
 .title {
@@ -13,7 +17,7 @@
   font-family: Baskerville;
   font-weight: normal;
   font-size: 1.75rem;
-  color: #3b3b3b;
+  color: var(--dark-gray);
 }
 
 @media only screen and (min-width: 768px) {

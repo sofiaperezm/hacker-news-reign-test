@@ -10,6 +10,10 @@
   --gray-42: #6b6b6b;
   --sonic-silver: #767676;
   --red-fav: #dd0132;
+  --bright-gray: #ececec;
+  --dark-gray: #3b3b3b;
+  --light-grey: #d6d6d6;
+  --gray99: #fcfcfc;
 }
 
 * {
@@ -56,8 +60,8 @@ select {
 }
 
 .button {
-  border: solid 1px #1797ff;
-  color: #1797ff;
+  border: solid 1px var(--primary);
+  color: var(--primary);
   padding: 0.8rem 1rem;
   border-radius: 0.2rem;
   background-color: var(--white);
