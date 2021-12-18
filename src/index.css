@@ -49,6 +49,12 @@ select {
   margin-top: 2.4rem;
 }
 
+.empty-message {
+  color: var(--primary);
+  text-align: center;
+  padding: 5rem;
+}
+
 .button {
   border: solid 1px #1797ff;
   color: #1797ff;

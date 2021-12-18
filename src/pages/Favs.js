@@ -18,20 +18,24 @@ function FavsPage() {
 
   return (
     <Main currentPage="My faves">
-      <div className="posts-container">
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            id={post.id}
-            author={post.author}
-            title={post.title}
-            url={post.url}
-            createdAt={post.createdAt}
-            isFav={post.isFav}
-            handleFavorite={handleFavActions}
-          />
-        ))}
-      </div>
+      {posts.length ? (
+        <div className="posts-container">
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              id={post.id}
+              author={post.author}
+              title={post.title}
+              url={post.url}
+              createdAt={post.createdAt}
+              isFav={post.isFav}
+              handleFavorite={handleFavActions}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-message">No favorite posts were found </div>
+      )}
     </Main>
   );
 }

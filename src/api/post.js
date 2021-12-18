@@ -25,7 +25,7 @@ export async function getPosts(APIurl, pageNumber) {
 }
 
 export function markAsFavorite(posts) {
-  const favorites = getFavoritePosts() || [];
+  const favorites = getFavoritePosts();
 
   return posts.map((post) => {
     const favorite = favorites.find((fav) => fav.id === post.id);
@@ -34,5 +34,5 @@ export function markAsFavorite(posts) {
 }
 
 export function getFavoritePosts() {
-  return getItem("favorites");
+  return getItem("favorites") || [];
 }
