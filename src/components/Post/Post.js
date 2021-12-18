@@ -31,24 +31,26 @@ function Post({ id, author, title, url, createdAt, isFav }) {
 
   return (
     <article className={styles.container} onClick={navigateToPost}>
-      <div className={styles.postContainer}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className={styles.clockIcon}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-        <span className={styles.date}>
-          {dayjs(createdAt).fromNow()} by {author}
-        </span>
+      <div className={styles.postInfo}>
+        <div className={styles.postDate}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={styles.clockIcon}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className={styles.date}>
+            {dayjs(createdAt).fromNow()} by {author}
+          </span>
+        </div>
         <h2 className={styles.title}>{title}</h2>
       </div>
       <div className={styles.favContainer}>

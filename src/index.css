@@ -37,3 +37,18 @@ select {
   justify-content: center;
   align-items: center;
 }
+
+.posts-container {
+  padding: 1.5rem;
+  margin-top: 2.4rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2.5rem;
+    row-gap: 1.8rem;
+    padding: 1.5rem;
+  }
+}

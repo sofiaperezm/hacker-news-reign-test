@@ -37,7 +37,7 @@ function AllPage() {
         defaultOption={selectedTopic}
         handleChange={handleDropdownChange}
       />
-      <div>
+      <div className="posts-container">
         {posts.map((post) => (
           <Post
             key={post.id}
