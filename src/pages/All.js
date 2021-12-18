@@ -11,6 +11,7 @@ const DEFAULT_TOPIC = DROPDOWN_OPTIONS[0].value;
 function AllPage() {
   const [selectedTopic, setSelectedTopic] = useState(DEFAULT_TOPIC);
   const [posts, setPosts] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
     const currentFilter = getItem("filter");
@@ -19,12 +20,25 @@ function AllPage() {
 
   useEffect(() => {
     async function _getPosts() {
-      let _posts = await getPosts(selectedTopic);
+      let _posts = await getPosts(selectedTopic, 0);
       _posts = markAsFavorite(_posts);
       setPosts(_posts);
     }
     _getPosts();
+    setPageNumber(0);
   }, [selectedTopic]);
+
+  useEffect(() => {
+    async function _getPostsByPage() {
+      let _posts = await getPosts(selectedTopic, pageNumber);
+      _posts = markAsFavorite(_posts);
+      setPosts((prevState) => [...new Set([...prevState, ..._posts])]);
+    }
+    if (pageNumber !== 0) {
+      _getPostsByPage();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageNumber]);
 
   function handleDropdownChange(value) {
     setSelectedTopic(value);
@@ -34,6 +48,12 @@ function AllPage() {
   function handleFavActions() {
     const _posts = markAsFavorite(posts);
     setPosts(_posts);
+  }
+
+  function loadMorePosts() {
+    if (selectedTopic.length) {
+      setPageNumber(pageNumber + 1);
+    }
   }
 
   return (
@@ -46,7 +66,7 @@ function AllPage() {
       <div className="posts-container">
         {posts.map((post) => (
           <Post
-            key={post.id}
+            key={post.id + post.author}
             id={post.id}
             author={post.author}
             title={post.title}
@@ -57,6 +77,9 @@ function AllPage() {
           />
         ))}
       </div>
+      <button type="button" className="button" onClick={loadMorePosts}>
+        Load more
+      </button>
     </Main>
   );
 }

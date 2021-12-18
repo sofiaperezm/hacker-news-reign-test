@@ -43,6 +43,20 @@ select {
   margin-top: 2.4rem;
 }
 
+.button {
+  border: solid 1px #1797ff;
+  color: #1797ff;
+  padding: 0.8rem 1rem;
+  border-radius: 0.2rem;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 @media only screen and (min-width: 1024px) {
   .posts-container {
     display: grid;

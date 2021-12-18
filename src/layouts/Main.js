@@ -9,7 +9,6 @@ function Main({ currentPage, children }) {
       <main className="content">
         <Tabs selected={currentPage} labels={TABS}></Tabs>
         {children}
-        <div>Paginacion</div>
       </main>
     </div>
   );

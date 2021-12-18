@@ -1,8 +1,8 @@
 import { getItem } from "../utils/storage";
 
-export async function getPosts(APIurl) {
+export async function getPosts(APIurl, pageNumber) {
   try {
-    const response = await fetch(`${APIurl}`);
+    const response = await fetch(`${APIurl}&page=${pageNumber}`);
     const APIdata = await response.json();
     const postsData = APIdata.hits;
     const posts = [];
@@ -25,7 +25,7 @@ export async function getPosts(APIurl) {
 }
 
 export function markAsFavorite(posts) {
-  const favorites = getFavoritePosts();
+  const favorites = getFavoritePosts() || [];
 
   return posts.map((post) => {
     const favorite = favorites.find((fav) => fav.id === post.id);
