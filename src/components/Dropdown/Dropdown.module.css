@@ -1,0 +1,11 @@
+.dropdown {
+  padding: 5px 12px 5px 12px;
+  border: solid 1px var(--ford-gray);
+  border-radius: 0.25rem;
+  color: var(--night-rider);
+  font-weight: normal;
+}
+
+.dropdown:focus {
+  border-color: var(--dark-charcoal);
+}

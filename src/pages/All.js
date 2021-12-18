@@ -58,12 +58,14 @@ function AllPage() {
 
   return (
     <Main currentPage="All">
-      <Dropdown
-        options={DROPDOWN_OPTIONS}
-        defaultOption={selectedTopic}
-        handleChange={handleDropdownChange}
-      />
       <div className="posts-container">
+        <div className="dropdown-container">
+          <Dropdown
+            options={DROPDOWN_OPTIONS}
+            defaultOption={selectedTopic}
+            handleChange={handleDropdownChange}
+          />
+        </div>
         {posts.map((post) => (
           <Post
             key={post.id + post.author}
