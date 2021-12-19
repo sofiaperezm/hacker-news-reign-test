@@ -9,7 +9,7 @@ Hacker News - Technical test - Reign
   - [Demo Link](#demo-link)
   - [Screenshots](#screenshots)
   - [Requeriments](#requeriments)
-- [My process](#my-process)
+- [Tools and structure](#tools-and-structure)
   - [Technologies Used](#technologies-used)
   - [Setup](#setup)
   - [Project structure](#project-structure)
@@ -28,11 +28,9 @@ This web application is part of a technical test for [Reign company](https://www
 
 ### Screenshots
 
-[Web Application in Large Viewports](public/screenshots/large-viewports.jpeg)
+![Web Application in Large Viewports](public/screenshots/large-viewports.jpeg)
 
-[Web Application in Small Viewports](public/screenshots/small-viewports.png)
-
-[Video demo of how the web application works](public/overview-video.mp4)
+![Video demo of how the web application works](public/overview-video.mp4)
 
 ### Requeriments
 
@@ -44,65 +42,49 @@ This web application is part of a technical test for [Reign company](https://www
 - The user will be able to read a complete post by clicking on any part of the post (except on the "like button").
 - The user will be able to properly interact with the web application regardless of the viewport size.
 
-### `npm start`
+## Tools and structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Dev stack
 
-### `npm test`
+- React.js
+- Module.css
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Dependencies
 
-### `npm run build`
+- Classnames
+- Day.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Deployment tool
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Netlify
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup
 
-### `npm run eject`
+- Download or clone the repository
+- Run `npm install`
+- Run `npm start`
+- Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Project structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Data Layer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Inside the api folder, the `post.js` file is found. This file contains 3 functions, the `getPosts()` function is in charge of request data from the API, the function `getFavoritePosts()` get the posts that have been marked as favorite from the local storage and, the `markAsFavorite()` merge both data from the API and the local storage.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Components
 
-## Learn More
+- Header: a presentational component in charge of rendering the header.
+- Tabs: a presentational component in charge of rendering the tabs (All / My Faves).
+- Dropdown: a component in charge of rendering the dropdown element. Also, this component set the option by default, detects when the option selected have change and update its corresponding state.
+- Post: a component in charge of rendering an individual card from each post. Also, this component is in charge of redirect the user to the whole post when the card is clicked, handle when a user marks a post as favorite (or removes this action).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Layout
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Main: the `Main.js` file contains both presentational components (header and tabs) so they can be rendered at once when is been called in the pages.
 
-### Code Splitting
+#### Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- All: The `All.js` file contains the components that should be render in the All page. Also, is in charge of setting the state of the selected topic in the dropdown, the lists of posts and the page number.
+- Favs: The `Favs.js` file contains the logic to render the list of favorite posts.
