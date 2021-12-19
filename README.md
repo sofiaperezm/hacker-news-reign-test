@@ -16,6 +16,7 @@ Hacker News - Technical test - Reign
 
 ## Overview
 
+
 ### Description
 
 A small responsive web application that requests data to the Hackers News public API.
@@ -30,7 +31,7 @@ This web application is part of a technical test for [Reign company](https://www
 
 ![Web Application in Large Viewports](public/screenshots/large-viewports.jpeg)
 
-![Video demo of how the web application works](public/overview-video.mp4)
+![Video demo of how the web application works](https://user-images.githubusercontent.com/32691511/146663061-5de8ae65-1b6d-4516-a330-7280619cc012.mp4)
 
 ### Requeriments
 
