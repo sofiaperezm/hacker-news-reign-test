@@ -75,16 +75,16 @@ Inside the api folder, the `post.js` file is found. This file contains 3 functio
 
 #### Components
 
-- Header: a presentational component in charge of rendering the header.
-- Tabs: a presentational component in charge of rendering the tabs (All / My Faves).
-- Dropdown: a component in charge of rendering the dropdown element. Also, this component set the option by default, detects when the option selected have change and update its corresponding state.
-- Post: a component in charge of rendering an individual card from each post. Also, this component is in charge of redirect the user to the whole post when the card is clicked, handle when a user marks a post as favorite (or removes this action).
+- **Header**: a presentational component in charge of rendering the header.
+- **Tabs**: a presentational component in charge of rendering the tabs (All / My Faves).
+- **Dropdown**: a component in charge of rendering the dropdown element. Also, this component set the option by default, detects when the option selected have change and update its corresponding state.
+- **Post**: a component in charge of rendering an individual card from each post. Also, this component is in charge of redirect the user to the whole post when the card is clicked, handle when a user marks a post as favorite (or removes this action).
 
 #### Layout
 
-- Main: the `Main.js` file contains both presentational components (header and tabs) so they can be rendered at once when is been called in the pages.
+- **Main**: the `Main.js` file contains both presentational components (header and tabs) so they can be rendered at once when is been called in the pages.
 
 #### Pages
 
-- All: The `All.js` file contains the components that should be render in the All page. Also, is in charge of setting the state of the selected topic in the dropdown, the lists of posts and the page number.
-- Favs: The `Favs.js` file contains the logic to render the list of favorite posts.
+- **All**: The `All.js` file contains the components that should be render in the All page. Also, is in charge of setting the state of the selected topic in the dropdown, the lists of posts and the page number.
+- **Favs**: The `Favs.js` file contains the logic to render the list of favorite posts.
