@@ -1,10 +1,48 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hacker News - Technical test - Reign
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Description](#description)
+  - [Demo Link](#demo-link)
+  - [Screenshots](#screenshots)
+  - [Requeriments](#requeriments)
+- [My process](#my-process)
+  - [Technologies Used](#technologies-used)
+  - [Setup](#setup)
+  - [Project structure](#project-structure)
+
+## Overview
+
+### Description
+
+A small responsive web application that requests data to the Hackers News public API.
+
+This web application is part of a technical test for [Reign company](https://www.reign.cl/en/).
+
+### Demo Link
+
+[Deployment of the web app on Netlify](https://compassionate-aryabhata-eef162.netlify.app/)
+
+### Screenshots
+
+[Web Application in Large Viewports](public/screenshots/large-viewports.jpeg)
+
+[Web Application in Small Viewports](public/screenshots/small-viewports.png)
+
+[Video demo of how the web application works](public/overview-video.mp4)
+
+### Requeriments
+
+- The user will be able to filter the news based on a specific topic selected from the dropdown.
+- The user will be able to keep the same filter in the dropdown even after refreshing the page.
+- The user will be able to mark any post as a favorite.
+- The user will be able to check the favorite posts in the tab "My Faves".
+- The user will be able to keep the same favorite posts even after refreshing the page.
+- The user will be able to read a complete post by clicking on any part of the post (except on the "like button").
+- The user will be able to properly interact with the web application regardless of the viewport size.
 
 ### `npm start`
 
